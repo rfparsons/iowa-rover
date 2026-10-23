@@ -217,9 +217,12 @@ class Wheels {
   }
 
   bool stop() {
-    while (left.getCurrentSpeed() != 0 && right.getCurrentSpeed() != 0) {
+    while (left.getCurrentSpeed() != 0 || right.getCurrentSpeed() != 0) { 
       update(0, 0);
     }
+    // Serial.print(left.getCurrentSpeed()); Serial.print(" ");
+    // Serial.print(right.getCurrentSpeed()); Serial.print(" ");
+    // Serial.println();
     current.reset();
   }
 
@@ -235,6 +238,9 @@ class Wheels {
         return -1;
       }
       delay(SAMPLE_MS);
+      // Serial.print(left.getCurrentSpeed()); Serial.print(" ");
+      // Serial.print(right.getCurrentSpeed()); Serial.print(" ");
+      // Serial.println();
     }
     // finished ok!
     return 0;
