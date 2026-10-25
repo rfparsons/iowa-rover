@@ -31,7 +31,7 @@ class Current {
     pinMode(13, OUTPUT);
     digitalWrite(13, 0);
     while (!sensor.begin()) {
-      Serial.println("Current sensor failed to initialize! retrying...");
+      Serial.println(F("Current sensor failed to initialize! retrying..."));
       delay(2000);
     }
 
